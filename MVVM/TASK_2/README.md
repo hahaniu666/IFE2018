@@ -90,3 +90,7 @@ module.exports = config;
 
     npm run start
     
+#### 4.打开page.html即可
+
+
+
