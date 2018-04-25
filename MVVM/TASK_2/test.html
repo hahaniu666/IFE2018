@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quick Start</title>
+    <script src="https://unpkg.com/san@latest"></script>
+</head>
+
+<body>
+
+<div id="div1"></div>
+
+<hr>
+
+<div id="div2"></div>
+<script>
+
+    var MyApp1 = san.defineComponent({
+        template: `
+                <div>
+                    <input type="text" value="{=name=}">
+                    <p>Hello {{name}}!</p>
+                </div>
+        `,
+
+        initData: function () {
+            return {
+                name: 'San'
+            };
+        }
+    });
+
+
+    var myApp1 = new MyApp1();
+    myApp1.attach(document.getElementById("div1"));
+
+    var MyApp2 = san.defineComponent({
+        template: '<ul><li s-for="item in list">{{item}}</li></ul>',
+
+        attached: function () {
+            this.data.set('list', ['san', 'er', 'esui', 'etpl', 'esl']);
+        }
+    });
+
+    var myApp2 = new MyApp2();
+    myApp2.attach(document.getElementById("div2"));
+</script>
+</body>
+
+</html>
