@@ -68,6 +68,8 @@ module.exports = config;
 #### 4.目录结构
 
 ```$xslt
+--dist                      //npm run start 自动生成
+--node_modules              //npm i  生成包文件夹
 --src
 ---san
 ----san.js                  //自己创建的js文件
