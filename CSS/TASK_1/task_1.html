@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>task_1</title>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+
+        }
+
+        .name {
+            width: 160px;
+            height: 60px;
+            font-size: 40px;
+            margin: 100px auto 20px;
+            padding-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .button {
+            margin: 0 auto;
+            position: relative;
+            background-color: #4CAF50;
+            border: none;
+            font-size: 20px;
+            color: #fff;
+            padding: 10px 20px;
+            /* width: 200px; */
+            /*去除浏览器增加的外边框，以免影响显示*/
+            outline: none;
+            text-align: center;
+            /*加过渡时间*/
+            -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+            text-decoration: none;
+            overflow: hidden;
+            /*改变鼠标样式*/
+            cursor: pointer;
+            /*按钮圆角  webkit 和 moz做浏览器兼容处理*/
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+        }
+
+        .button:after {
+            content: "";
+            background: #90EE90;
+            display: block;
+            position: absolute;
+            padding-top: 300%;
+            padding-left: 350%;
+            margin-left: -20px !important;
+            margin-top: -120%;
+            opacity: 0;
+            transition: all 0.8s
+        }
+
+        .button:active:after {
+            padding: 0;
+            margin: 0;
+            opacity: 1;
+            transition: 0s
+        }
+    </style>
+</head>
+<body>
+
+<div class="name">
+    前端学院
+</div>
+
+
+<button class="button" onclick="btn()">
+    切换样式
+</button>
+
+<script>
+
+
+    <!--因为class命名可能有多个，所以后面加上[0]  [1],表示第几个命名相同class 的标签-->
+
+    // console.log('_name', _name);
+
+    // var _btn = document.getElementsByClassName("button")[0];
+
+    var flag = false;
+
+    function btn() {
+
+        flag = !flag;
+        var _name = document.getElementsByClassName("name")[0];
+        if (flag) {
+            _name.style.cssText = "border-bottom:2px solid blue";
+        }
+        else {
+            _name.style.cssText = "border-bottom:none";
+        }
+    }
+</script>
+
+
+</body>
+</html>

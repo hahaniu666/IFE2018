@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>task_1</title>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+
+        }
+
+        /*前端学院样式*/
+        .name {
+            position: relative;
+            width: 160px;
+            height: 60px;
+            font-size: 40px;
+            margin: 100px auto 20px;
+            padding-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        /*
+        > 用于选择 .name下面的子集  .line标签
+        */
+        .name > .line {
+            width: 0;
+            height: 2px;
+            background: blue;
+            /*由于我所用span标签为内联样式，所以用display改变成内联块元素，使其支持宽高*/
+            display: inline-block;
+            /*定位居中*/
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            /*用css3的transform，，可以是不知宽度的发生偏移*/
+            transform: translateX(-50%);
+        }
+
+
+        /*按钮样式*/
+        .button {
+            margin: 0 auto;
+            position: relative;
+            background-color: #4CAF50;
+            border: none;
+            font-size: 20px;
+            color: #fff;
+            padding: 10px 20px;
+            /* width: 200px; */
+            /*去除浏览器增加的外边框，以免影响显示*/
+            outline: none;
+            text-align: center;
+            /*加过渡时间   webkit 和 moz做浏览器兼容处理*/
+            -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+            text-decoration: none;
+            overflow: hidden;
+            /*改变鼠标样式*/
+            cursor: pointer;
+            /*按钮圆角  webkit 和 moz做浏览器兼容处理*/
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+
+            /*增加圆角*/
+            border-radius: 4px;
+        }
+
+        /*用伪类增加样式，默认不显示*/
+        .button:after {
+            content: "";
+            background: #90EE90;
+            display: block;
+            position: absolute;
+            padding-top: 300%;
+            padding-left: 350%;
+            margin-left: -20px !important;
+            margin-top: -120%;
+            opacity: 0;
+            transition: all 0.8s
+        }
+
+        /*点击按钮是显示*/
+        .button:active:after {
+            padding: 0;
+            margin: 0;
+            opacity: 1;
+            transition: 0s
+        }
+    </style>
+</head>
+<body>
+
+<div class="name">
+    前端学院
+    <span class="line"></span>
+</div>
+
+<button class="button" onclick="btn()">
+    切换样式
+</button>
+
+<script>
+
+    //定义一个开关，用于样式切换
+    var flag = false;
+
+    //定义点击方法
+    function btn() {
+
+        // 切换开关
+        flag = !flag;
+
+        //原生js获取 name 和 line线
+
+        //注意：由于class命名可能复用，也就是有可能多个标签用一个相同的class，所以后面要加标记获取
+        var _name = document.getElementsByClassName("name")[0];
+        var _line = document.getElementsByClassName("line")[0];
+
+        //用 if...else判断点击增加还是删除样式
+        if (flag) {
+            //添加样式
+            _name.style.cssText = "color:blue; border-width:100% ;transition: all 0.8s";
+            _line.style.cssText = "width:100%;transition: all 0.8s";
+
+        }
+        else {
+
+            //删除添加的样式
+            _name.style.cssText = "color:black;border-bottom:none;  border-width:0 ; transition: all 0.8s";
+            _line.style.cssText = "width:0;transition: all 0.8s";
+
+        }
+    }
+</script>
+
+
+</body>
+</html>
