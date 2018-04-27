@@ -205,6 +205,11 @@ const config = {
                 loader: 'san-loader'
             },
             {
+                test: /\.(js)$/,
+                use: ['babel-loader'],
+                exclude: /node_modules/
+            },
+            {
                 // test 表示测试什么文件类型
                 test: /\.css$/,
                 // 使用 'style-loader','css-loader'
@@ -215,20 +220,24 @@ const config = {
             },
             {
                 test: /\.scss$/,
-                use: [
-                    MiniCssExtractPlugin.loader,    //参考 ：https://www.npmjs.com/package/mini-css-extract-plugin
-                    "style-loader",                 // creates style nodes from JS strings
-                    "css-loader",                   // translates CSS into CommonJS
-                    "sass-loader"                   // compiles Sass to CSS
-                    // {
-                    //     loader: "style-loader" // creates style nodes from JS strings
-                    // }, {
-                    //     loader: "css-loader" // translates CSS into CommonJS
-                    // }, {
-                    //     loader: "sass-loader" // compiles Sass to CSS
-                    // }
-                ]
-            }
+                use: ['style-loader', 'css-loader', 'sass-loader']
+            },
+            // {
+            //     test: /\.scss$/,
+            //     use: [
+            //         MiniCssExtractPlugin.loader,    //参考 ：https://www.npmjs.com/package/mini-css-extract-plugin
+            //         "style-loader",                 // creates style nodes from JS strings
+            //         "css-loader",                   // translates CSS into CommonJS
+            //         "sass-loader"                   // compiles Sass to CSS
+            //         // {
+            //         //     loader: "style-loader" // creates style nodes from JS strings
+            //         // }, {
+            //         //     loader: "css-loader" // translates CSS into CommonJS
+            //         // }, {
+            //         //     loader: "sass-loader" // compiles Sass to CSS
+            //         // }
+            //     ]
+            // }
         ]
     },
 

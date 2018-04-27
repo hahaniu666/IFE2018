@@ -1,10 +1,12 @@
 import san from 'san';
+
 export default function _san() {
     //
+    const a = 12;
+    const b = 5;
+    let c = 1;
 
-    let a = 1;
     // alert(a)
-
 
 
     function component() {
@@ -16,8 +18,6 @@ export default function _san() {
     }
 
     document.body.appendChild(component());
-
-
 
 
     var MyApp1 = san.defineComponent({
@@ -40,7 +40,6 @@ export default function _san() {
     myApp1.attach(document.getElementById("div1"));
 
 
-
     var MyApp2 = san.defineComponent({
         template: '<ul><li s-for="item in list">{{item}}</li></ul>',
 
@@ -53,3 +52,4 @@ export default function _san() {
     myApp2.attach(document.getElementById("div2"));
 
 }
+
