@@ -47,9 +47,9 @@ const vendorCssPlugin = new MiniCssExtractPlugin({
     // filename: isProd ? '[name].[hash].css' : '[name].css'
     filename: isProd ? '[name].[hash].css' : '[name].css',
 });
-// const appCssPlugin = new MiniCssExtractPlugin({
-//     filename: isProd ? '[name].[hash].scss.css' : '[name].scss.css'
-// });
+const appCssPlugin = new MiniCssExtractPlugin({
+    filename: isProd ? '[name].[hash].scss.css' : '[name].scss.css'
+});
 
 // 自定义entry 入口配置
 const entry = {
@@ -102,7 +102,7 @@ const plugins = [
     //     filename: "[name].css",
     // }),
 
-    // appCssPlugin,
+    appCssPlugin,
     new HtmlWebpackPlugin({
         template: './src/app/index.html',
         filename: '../index.html',
@@ -205,7 +205,7 @@ const config = {
                 loader: 'san-loader'
             },
             {
-                test: /\.(js)$/,
+                test: /\.js$/,
                 use: ['babel-loader'],
                 exclude: /node_modules/
             },
