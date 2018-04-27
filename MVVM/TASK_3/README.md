@@ -36,3 +36,6 @@
                 },
     
     UglifyJsPlugin  ---->>>>  uglifyjs-webpack-plugin
+    
+    
+# sass-loader打包出来的css是放在head下面的  <stale>....</style>中，，所以如过用sass文件时，一定要在最外层加一个不一样的.sa-home{...},, .sa{...},来区分不同的样式

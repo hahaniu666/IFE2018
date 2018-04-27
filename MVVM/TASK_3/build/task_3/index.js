@@ -100,6 +100,10 @@ var _san6 = __webpack_require__(11);
 
 var _san7 = _interopRequireDefault(_san6);
 
+var _san8 = __webpack_require__(16);
+
+var _san9 = _interopRequireDefault(_san8);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // import san from 'san'
@@ -108,6 +112,7 @@ console.log('conf', _conf2.default.app);
 console.log('sanCss', _san5.default);
 console.log('_san', _san3.default.a);
 console.log('sanCss1', _san7.default);
+console.log('sanCss2', _san9.default);
 
 (0, _san3.default)();
 
@@ -10588,6 +10593,45 @@ module.exports = function (css) {
 	// send back the fixed css
 	return fixedCss;
 };
+
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(17);
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(14)(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(13)(false);
+// imports
+
+
+// module
+exports.push([module.i, "#div2 {\n  background: green; }\n", ""]);
+
+// exports
 
 
 /***/ })
