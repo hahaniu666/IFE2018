@@ -41,7 +41,6 @@
 
         }
 
-
         /*按钮样式*/
         .button {
             margin: 0 auto;
@@ -132,7 +131,7 @@
         //用 if...else判断点击增加还是删除样式
         if (flag) {
             //添加样式
-            // _name.style.cssText = "color:blue; border-width:100% ;transition: all 0.8s;transition-timing-function:cubic-bezier(1,-0.87,0,1.59);";
+            _name.style.cssText = "color:blue; transition: all 0.8s;transition-timing-function:cubic-bezier(1,-0.87,0,1.59);";
             _line.style.cssText = "width:100%;transition: all 0.8s;transition-timing-function:cubic-bezier(1,-0.87,0,1.59);";
 
         }
@@ -153,7 +152,7 @@
             * */
 
             //删除添加的样式
-            // _name.style.cssText = "color:black;border-bottom:none;  border-width:0 ; transition: all 0.8s";
+            _name.style.cssText = "color:black; border-width:0 ; transition: all 0.8s；transition-timing-function:cubic-bezier(1,-0.87,0,1.59)";
             _line.style.cssText = "width:0;transition: all 0.8s; transition-timing-function:cubic-bezier(1,-0.87,0,1.59);";
 
         }
