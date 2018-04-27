@@ -1,0 +1,49 @@
+
+> task_3@1.0.0 start /Users/hahaniu/Desktop/IFE2018/MVVM/TASK_3
+> webpack --config webpack.config.js
+
+/Users/hahaniu/Desktop/IFE2018/MVVM/TASK_3/node_modules/webpack-cli/bin/webpack.js:242
+                                throw err;
+                                ^
+
+Error: Cannot find module 'webpack-bundle-analyzer'
+    at Function.Module._resolveFilename (module.js:485:15)
+    at Function.Module._load (module.js:437:25)
+    at Module.require (module.js:513:17)
+    at require (/Users/hahaniu/Desktop/IFE2018/MVVM/TASK_3/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at Object.<anonymous> (/Users/hahaniu/Desktop/IFE2018/MVVM/TASK_3/webpack.config.js:6:30)
+    at Module._compile (/Users/hahaniu/Desktop/IFE2018/MVVM/TASK_3/node_modules/v8-compile-cache/v8-compile-cache.js:178:30)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:503:32)
+    at tryModuleLoad (module.js:466:12)
+    at Function.Module._load (module.js:458:3)
+    at Module.require (module.js:513:17)
+    at require (/Users/hahaniu/Desktop/IFE2018/MVVM/TASK_3/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at WEBPACK_OPTIONS (/Users/hahaniu/Desktop/IFE2018/MVVM/TASK_3/node_modules/webpack-cli/bin/convert-argv.js:133:13)
+    at requireConfig (/Users/hahaniu/Desktop/IFE2018/MVVM/TASK_3/node_modules/webpack-cli/bin/convert-argv.js:135:6)
+    at /Users/hahaniu/Desktop/IFE2018/MVVM/TASK_3/node_modules/webpack-cli/bin/convert-argv.js:142:17
+    at Array.forEach (native)
+    at module.exports (/Users/hahaniu/Desktop/IFE2018/MVVM/TASK_3/node_modules/webpack-cli/bin/convert-argv.js:140:15)
+    at yargs.parse (/Users/hahaniu/Desktop/IFE2018/MVVM/TASK_3/node_modules/webpack-cli/bin/webpack.js:239:39)
+    at Object.parse (/Users/hahaniu/Desktop/IFE2018/MVVM/TASK_3/node_modules/yargs/yargs.js:552:18)
+    at /Users/hahaniu/Desktop/IFE2018/MVVM/TASK_3/node_modules/webpack-cli/bin/webpack.js:217:8
+    at Object.<anonymous> (/Users/hahaniu/Desktop/IFE2018/MVVM/TASK_3/node_modules/webpack-cli/bin/webpack.js:514:3)
+    at Module._compile (module.js:569:30)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:503:32)
+    at tryModuleLoad (module.js:466:12)
+    at Function.Module._load (module.js:458:3)
+    at Module.require (module.js:513:17)
+    at require (internal/module.js:11:18)
+    at Object.<anonymous> (/Users/hahaniu/Desktop/IFE2018/MVVM/TASK_3/node_modules/webpack/bin/webpack.js:80:2)
+    at Module._compile (module.js:569:30)
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! task_3@1.0.0 start: `webpack --config webpack.config.js`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the task_3@1.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /Users/hahaniu/.npm/_logs/2018-04-27T06_36_03_900Z-debug.log

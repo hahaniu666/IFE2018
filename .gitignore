@@ -1,3 +1,6 @@
 .idea
-
 MVVM/TASK_2/node_modules
+###  //匹配所有 node_modules ###
+node_modules
+build
+dist
