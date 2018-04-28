@@ -8,6 +8,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const Uglify = require('uglifyjs-webpack-plugin');
+// const utils = require('./utils');
 
 const args = require('yargs').argv;
 //
@@ -222,6 +223,31 @@ const config = {
                 test: /\.scss$/,
                 use: ['style-loader', 'css-loader', 'sass-loader']
             },
+            // {
+            //     test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+            //     loader: 'url',
+            //     query: {
+            //         limit: 10000,
+            //         name: 'img/[name].[hash:7].[ext]'
+            //     }
+            // },
+            // {
+            //     test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+            //     loader: 'url',
+            //     query: {
+            //         limit: 10000,
+            //         name: "fonts/[name].[hash:7].[ext]",
+            //     }
+            // }
+
+            {
+                test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
+                use: [{
+                    loader: "file-loader",
+                    options: {
+                        name: "assets/[name]-[hash:7].[ext]"
+                    }
+                }]}
             // {
             //     test: /\.scss$/,
             //     use: [

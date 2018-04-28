@@ -1,1 +1,1 @@
-{"version":3,"sources":["webpack:///./src/app/san/san1.css"],"names":[],"mappings":";AAAA;AACA;AACA,C","file":"index.css","sourcesContent":["#div1 {\n    background: blue;\n}"],"sourceRoot":""}
+{"version":3,"sources":["webpack:///./src/app/main.css"],"names":[],"mappings":";AAAA;AACA;AACA;AACA,C","file":"index.css","sourcesContent":["* {\n    margin: 0;\n    padding: 0;\n}"],"sourceRoot":""}

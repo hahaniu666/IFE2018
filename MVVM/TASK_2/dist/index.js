@@ -182,7 +182,7 @@ function _san() {
 //     // require('./browser/svg-tags');
 //     // require('./browser/create-el');
 //     // require('./browser/remove-el');
-//     // require('./util/next-tick');
+//     // require('./util/dataHandle-tick');
 //     // require('./browser/ie');
 //     // require('./browser/ie-old-than-9');
 //     // require('./browser/input-event-compatible');
@@ -6834,7 +6834,7 @@ emitDevtool.start = function (main) {
 // var each = require('../util/each');
 // var guid = require('../util/guid');
 // var extend = require('../util/extend');
-// var nextTick = require('../util/next-tick');
+// var nextTick = require('../util/dataHandle-tick');
 // var emitDevtool = require('../util/emit-devtool');
 // var ExprType = require('../parser/expr-type');
 // var parseExpr = require('../parser/parse-expr');
@@ -9224,7 +9224,7 @@ function camelComponentBinds(binds) {
 // exports = module.exports = compileJSSource;
 
     /* eslint-disable no-unused-vars */
-//     var nextTick = require('./util/next-tick');
+//     var nextTick = require('./util/dataHandle-tick');
 //     var inherits = require('./util/inherits');
 //     var parseTemplate = require('./parser/parse-template');
 //     var parseExpr = require('./parser/parse-expr');

@@ -84,102 +84,65 @@ module.exports = __webpack_require__(1);
 "use strict";
 
 
-var _san2 = __webpack_require__(2);
+var _main = __webpack_require__(2);
 
-var _san3 = _interopRequireDefault(_san2);
+var _main2 = _interopRequireDefault(_main);
 
-var _conf = __webpack_require__(8);
+var _san = __webpack_require__(4);
+
+var _san2 = _interopRequireDefault(_san);
+
+var _conf = __webpack_require__(9);
 
 var _conf2 = _interopRequireDefault(_conf);
 
-var _san4 = __webpack_require__(9);
+var _sanRouter = __webpack_require__(10);
 
-var _san5 = _interopRequireDefault(_san4);
+var _home = __webpack_require__(11);
 
-var _san6 = __webpack_require__(11);
+var _home2 = _interopRequireDefault(_home);
 
-var _san7 = _interopRequireDefault(_san6);
+var _dataHandle = __webpack_require__(20);
 
-var _san8 = __webpack_require__(16);
-
-var _san9 = _interopRequireDefault(_san8);
+var _dataHandle2 = _interopRequireDefault(_dataHandle);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import sanCss from "./san/san1.css"
+// import sanCss1 from "./san/san.scss"
+// import sanCss2 from "./san/san2.scss"
 
 // import san from 'san'
 
 console.log('conf', _conf2.default.app);
-console.log('sanCss', _san5.default);
-console.log('_san', _san3.default.a);
-console.log('sanCss1', _san7.default);
-console.log('sanCss2', _san9.default);
+// console.log('sanCss', sanCss);
+// console.log('_san', _san.a);
+// console.log('sanCss1', sanCss1);
+// console.log('sanCss2', sanCss2);
+//
+// _san();
 
-(0, _san3.default)();
+
+// import _san from './san/san.js';
+// 为兼容 ES5 浏览器环境（主要是 IE8 ~ IE11）而引入的 polyfill，对兼容性没有要求的项目可以不写此行
+// import 'babel-polyfill'
+
+
+_sanRouter.router.add({ rule: '/', Component: _home2.default, target: '#app' });
+_sanRouter.router.add({ rule: '/dataHandle', Component: _dataHandle2.default, target: '#app' });
+
+// start
+_sanRouter.router.start();
 
 /***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = _san;
-
-var _san2 = __webpack_require__(3);
-
-var _san3 = _interopRequireDefault(_san2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _san() {
-    //
-    var a = 12;
-    var b = 5;
-    var c = 1;
-
-    // alert(a)
-
-
-    function component() {
-        var element = document.createElement('div');
-
-        // Lodash, currently included via a script, is required for this line to work
-        element.innerHTML = "Hello webpack";
-        return element;
-    }
-
-    document.body.appendChild(component());
-
-    var MyApp1 = _san3.default.defineComponent({
-        template: '\n                <div>\n                    <input type="text" value="{=name=}">\n                    <p>Hello {{name}}!</p>\n                </div>\n        ',
-
-        initData: function initData() {
-            return {
-                name: 'San'
-            };
-        }
-    });
-
-    var myApp1 = new MyApp1();
-    myApp1.attach(document.getElementById("div1"));
-
-    var MyApp2 = _san3.default.defineComponent({
-        template: '<ul><li s-for="item in list">{{item}}</li></ul>',
-
-        attached: function attached() {
-            this.data.set('list', ['san', 'er', 'esui', 'etpl', 'esl']);
-        }
-    });
-
-    var myApp2 = new MyApp2();
-    myApp2.attach(document.getElementById("div2"));
-}
+// extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 3 */
+/* 3 */,
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(setImmediate) {/**
@@ -9424,10 +9387,10 @@ function camelComponentBinds(binds) {
     // #[end]
 })(this);
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(4).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(5).setImmediate))
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -9483,7 +9446,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(6);
+__webpack_require__(7);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -9494,10 +9457,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(5)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(6)))
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports) {
 
 var g;
@@ -9523,7 +9486,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -9713,10 +9676,10 @@ module.exports = g;
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(5), __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(6), __webpack_require__(8)))
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -9906,7 +9869,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9987,18 +9950,1162 @@ function appConfigFactory() {
 exports.default = appConfigFactory();
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// extracted by mini-css-extract-plugin
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(true)
+		module.exports = factory();
+	else {}
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/dist";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports['default'] = resolveURL;
+
+var _parseUrl = __webpack_require__(1);
+
+var _parseUrl2 = _interopRequireDefault(_parseUrl);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+/**
+ * 将 URL 中相对路径部分展开
+ *
+ * @param {string} source 要展开的url
+ * @param {string} base 当前所属环境的url
+ * @return {string}
+ */
+function resolveURL(source, base) {
+    var sourceLoc = (0, _parseUrl2['default'])(source);
+    var baseLoc = (0, _parseUrl2['default'])(base);
+
+    var sourcePath = sourceLoc.path;
+    if (sourcePath.indexOf('/') === 0) {
+        return source;
+    }
+
+    var sourceSegs = sourcePath.split('/');
+    var baseSegs = baseLoc.path.split('/');
+    baseSegs.pop();
+
+    for (var i = 0; i < sourceSegs.length; i++) {
+        var seg = sourceSegs[i];
+        switch (seg) {
+            case '..':
+                baseSegs.pop();
+                break;
+            case '.':
+                break;
+            default:
+                baseSegs.push(seg);
+        }
+    }
+
+    if (baseSegs[0] !== '') {
+        baseSegs.unshift('');
+    }
+
+    return baseSegs.join('/') + (sourceLoc.queryString ? '?' + sourceLoc.queryString : '');
+} /**
+   * san-router
+   * Copyright 2017 Baidu Inc. All rights reserved.
+   *
+   * @file 将 URL 中相对路径部分展开
+   * @author errorrik
+   */
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports['default'] = parseURL;
+/**
+ * san-router
+ * Copyright 2017 Baidu Inc. All rights reserved.
+ *
+ * @file 解析URL
+ * @author errorrik
+ */
+
+/**
+ * 解析URL，返回包含path、query、queryString的对象
+ *
+ * @param {string} url 要解析的url
+ * @return {Object}
+ */
+function parseURL(url) {
+    var result = {
+        hash: '',
+        queryString: '',
+        params: {},
+        query: {},
+        path: url
+    };
+
+    // parse hash
+    var hashStart = result.path.indexOf('#');
+    if (hashStart >= 0) {
+        result.hash = result.path.slice(hashStart + 1);
+        result.path = result.path.slice(0, hashStart);
+    }
+
+    // parse query
+    var query = result.query;
+    var queryStart = result.path.indexOf('?');
+    if (queryStart >= 0) {
+        result.queryString = result.path.slice(queryStart + 1);
+        result.path = result.path.slice(0, queryStart);
+
+        result.queryString.split('&').forEach(function (querySeg) {
+            // 考虑到有可能因为未处理转义问题，
+            // 导致value中存在**=**字符，因此不使用`split`函数
+            var equalIndex = querySeg.indexOf('=');
+            var value = '';
+            if (equalIndex > 0) {
+                value = querySeg.slice(equalIndex + 1);
+                querySeg = querySeg.slice(0, equalIndex);
+            }
+
+            var key = decodeURIComponent(querySeg);
+            value = decodeURIComponent(value);
+
+            // 已经存在这个参数，且新的值不为空时，把原来的值变成数组
+            if (query.hasOwnProperty(key)) {
+                /* eslint-disable */
+                query[key] = [].concat(query[key], value);
+                /* eslint-disable */
+            } else {
+                query[key] = value;
+            }
+        });
+    }
+
+    return result;
+}
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * san-router
+ * Copyright 2017 Baidu Inc. All rights reserved.
+ *
+ * @file 提供事件相关操作的基类
+ * @author otakustay, errorrik
+ */
+
+var EventTarget = function () {
+    function EventTarget() {
+        _classCallCheck(this, EventTarget);
+    }
+
+    /**
+     * 注册一个事件处理函数
+     *
+     * @param {string} type 事件的类型
+     * @param {Function | boolean} fn 事件的处理函数
+     */
+    EventTarget.prototype.on = function on(type, fn) {
+        if (typeof fn !== 'function') {
+            return;
+        }
+
+        if (!this._eventListeners) {
+            this._eventListeners = {};
+        }
+
+        if (!this._eventListeners[type]) {
+            this._eventListeners[type] = [];
+        }
+
+        this._eventListeners[type].push(fn);
+    };
+
+    /**
+     * 注销一个事件处理函数
+     *
+     * @param {string} type 事件的类型，如果值为`*`仅会注销通过`*`为类型注册的事件，并不会将所有事件注销
+     * @param {Function} [fn] 事件的处理函数，无此参数则注销`type`指定类型的所有事件处理函数
+     */
+
+
+    EventTarget.prototype.un = function un(type, fn) {
+        if (!this._eventListeners || !this._eventListeners[type]) {
+            return;
+        }
+
+        if (!fn) {
+            this._eventListeners[type] = [];
+        } else {
+            var listeners = this._eventListeners[type];
+            var len = listeners.length;
+
+            while (len--) {
+                if (listeners[len] === fn) {
+                    listeners.splice(len, 1);
+                }
+            }
+        }
+    };
+
+    /**
+     * 触发指定类型的事件
+     *
+     * @param {string} type 事件类型
+     * @param {*} [args] 事件对象
+     */
+
+
+    EventTarget.prototype.fire = function fire(type, args) {
+        if (!type) {
+            throw new Error('No event type specified');
+        }
+
+        var listeners = this._eventListeners && this._eventListeners[type];
+        if (listeners) {
+            for (var i = 0; i < listeners.length; i++) {
+                listeners[i](args);
+            }
+        }
+    };
+
+    return EventTarget;
+}();
+
+exports['default'] = EventTarget;
+
+/***/ },
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _main = __webpack_require__(6);
+
+var _resolveUrl = __webpack_require__(0);
+
+var _resolveUrl2 = _interopRequireDefault(_resolveUrl);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+/**
+ * san-router
+ * Copyright 2017 Baidu Inc. All rights reserved.
+ *
+ * @file 路由链接的 San 组件
+ * @author errorrik
+ */
+
+exports['default'] = {
+    template: '<a href="{{href}}"\n        onclick="return false;"\n        on-click="clicker($event)"\n        target="{{target}}"\n        class="{{class}}"\n        style="{{style}}"\n        >\n        <slot></slot>\n    </a>',
+
+    clicker: function clicker(e) {
+        var href = this.data.get('href');
+
+        if (typeof href === 'string') {
+            _main.router.locator.redirect(href.replace(/^#/, ''));
+        }
+
+        if (e.preventDefault) {
+            e.preventDefault();
+        } else {
+            e.returnValue = false;
+        }
+    },
+
+
+    computed: {
+        href: function href() {
+            var url = this.data.get('to');
+            if (typeof url !== 'string') {
+                return;
+            }
+
+            var href = (0, _resolveUrl2['default'])(url, _main.router.locator.current);
+            if (_main.router.mode === 'hash') {
+                href = '#' + href;
+            }
+
+            return href;
+        }
+    }
+};
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _eventTarget = __webpack_require__(2);
+
+var _eventTarget2 = _interopRequireDefault(_eventTarget);
+
+var _resolveUrl = __webpack_require__(0);
+
+var _resolveUrl2 = _interopRequireDefault(_resolveUrl);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * san-router
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright 2017 Baidu Inc. All rights reserved.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file hash 模式地址监听器
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author errorrik
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+/**
+ * 获取当前URL
+ *
+ * @return {string}
+ */
+function getLocation() {
+    // Firefox下`location.hash`存在自动解码的情况，
+    // 比如hash的值是**abc%3def**，
+    // 在Firefox下获取会成为**abc=def**
+    // 为了避免这一情况，需要从`location.href`中分解
+    var index = location.href.indexOf('#');
+    var url = index < 0 ? '/' : location.href.slice(index + 1) || '/';
+
+    return url;
+}
+
+/**
+ * hash 模式地址监听器
+ *
+ * @class
+ */
+
+var Locator = function (_EventTarget) {
+    _inherits(Locator, _EventTarget);
+
+    /**
+     * 构造函数
+     */
+    function Locator() {
+        _classCallCheck(this, Locator);
+
+        var _this = _possibleConstructorReturn(this, _EventTarget.call(this));
+
+        _this.current = getLocation();
+        _this.referrer = '';
+
+        _this.hashChangeHandler = function () {
+            _this.redirect(getLocation());
+        };
+        return _this;
+    }
+
+    /**
+     * 开始监听 url 变化
+     */
+
+
+    Locator.prototype.start = function start() {
+        if (window.addEventListener) {
+            window.addEventListener('hashchange', this.hashChangeHandler, false);
+        }
+
+        if (window.attachEvent) {
+            window.attachEvent('onhashchange', this.hashChangeHandler);
+        }
+    };
+
+    /**
+     * 停止监听
+     */
+
+
+    Locator.prototype.stop = function stop() {
+        if (window.removeEventListener) {
+            window.removeEventListener('hashchange', this.hashChangeHandler, false);
+        }
+
+        if (window.detachEvent) {
+            window.detachEvent('onhashchange', this.hashChangeHandler);
+        }
+    };
+
+    /**
+     * 重定向
+     *
+     * @param {string} url 重定向的地址
+     * @param {Object?} options 重定向的行为配置
+     * @param {boolean?} options.force 是否强制刷新
+     */
+
+
+    Locator.prototype.redirect = function redirect(url) {
+        var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : { force: false };
+
+        url = (0, _resolveUrl2['default'])(url, this.current);
+        var referrer = this.current;
+
+        var isChanged = url !== referrer;
+        if (isChanged) {
+            this.referrer = referrer;
+            this.current = url;
+            location.hash = url;
+        } else {
+            referrer = this.referrer;
+        }
+
+        if ((isChanged || options.force) && !options.silent) {
+            this.fire('redirect', { url: url, referrer: referrer });
+        }
+    };
+
+    /**
+     * 刷新当前 url
+     */
+
+
+    Locator.prototype.reload = function reload() {
+        this.redirect(this.current, { force: true });
+    };
+
+    return Locator;
+}(_eventTarget2['default']);
+
+exports['default'] = Locator;
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _eventTarget = __webpack_require__(2);
+
+var _eventTarget2 = _interopRequireDefault(_eventTarget);
+
+var _resolveUrl = __webpack_require__(0);
+
+var _resolveUrl2 = _interopRequireDefault(_resolveUrl);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * san-router
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright 2017 Baidu Inc. All rights reserved.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file html5 模式地址监听器
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author errorrik
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+/**
+ * 获取当前URL
+ *
+ * @return {string}
+ */
+function getLocation() {
+    return location.pathname + location.search;
+}
+
+/**
+ * html5 模式地址监听器
+ *
+ * @class
+ */
+
+var Locator = function (_EventTarget) {
+    _inherits(Locator, _EventTarget);
+
+    /**
+     * 构造函数
+     */
+    function Locator() {
+        _classCallCheck(this, Locator);
+
+        var _this = _possibleConstructorReturn(this, _EventTarget.call(this));
+
+        _this.current = getLocation();
+        _this.referrer = '';
+
+        _this.popstateHandler = function () {
+            _this.referrer = _this.current;
+            _this.current = getLocation();
+
+            _this.fire('redirect', {
+                url: _this.current,
+                referrer: _this.referrer
+            });
+        };
+        return _this;
+    }
+
+    /**
+     * 开始监听 url 变化
+     */
+
+
+    Locator.prototype.start = function start() {
+        window.addEventListener('popstate', this.popstateHandler);
+    };
+
+    /**
+     * 停止监听
+     */
+
+
+    Locator.prototype.stop = function stop() {
+        window.removeEventListener('popstate', this.popstateHandler);
+    };
+
+    /**
+     * 重定向
+     *
+     * @param {string} url 重定向的地址
+     * @param {Object?} options 重定向的行为配置
+     * @param {boolean?} options.force 是否强制刷新
+     */
+
+
+    Locator.prototype.redirect = function redirect(url) {
+        var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : { force: false };
+
+        url = (0, _resolveUrl2['default'])(url, this.current);
+        var referrer = this.current;
+
+        var isChanged = url !== referrer;
+
+        if (isChanged) {
+            this.referrer = referrer;
+            this.current = url;
+
+            history.pushState({}, '', url);
+        }
+
+        if ((isChanged || options.force) && !options.silent) {
+            this.fire('redirect', { url: url, referrer: referrer });
+        }
+    };
+
+    /**
+     * 刷新当前 url
+     */
+
+
+    Locator.prototype.reload = function reload() {
+        this.fire('redirect', {
+            url: this.current,
+            referrer: this.referrer
+        });
+    };
+
+    return Locator;
+}(_eventTarget2['default']);
+
+exports['default'] = Locator;
+
+
+Locator.isSupport = 'pushState' in window.history;
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.Link = exports.router = exports.Router = exports.version = undefined;
+
+var _hash = __webpack_require__(4);
+
+var _hash2 = _interopRequireDefault(_hash);
+
+var _html = __webpack_require__(5);
+
+var _html2 = _interopRequireDefault(_html);
+
+var _parseUrl = __webpack_require__(1);
+
+var _parseUrl2 = _interopRequireDefault(_parseUrl);
+
+var _link = __webpack_require__(3);
+
+var _link2 = _interopRequireDefault(_link);
+
+var _elementSelector = __webpack_require__(7);
+
+var _elementSelector2 = _interopRequireDefault(_elementSelector);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } /**
+                                                                                                                                                           * san-router
+                                                                                                                                                           * Copyright 2017 Baidu Inc. All rights reserved.
+                                                                                                                                                           *
+                                                                                                                                                           * @file 主模块
+                                                                                                                                                           * @author errorrik
+                                                                                                                                                           */
+
+var routeID = 0x5942b;
+var guid = function guid() {
+    return (++routeID).toString();
+};
+
+function isComponent(C) {
+    return C.prototype && (C.prototype.nodeType === 5 || C.prototype._type === 'san-cmpt');
+}
+
+/**
+ * 版本号
+ *
+ * @type {string}
+ */
+var version = exports.version = '1.2.0';
+
+/**
+ * 路由器类
+ *
+ * @class
+ */
+
+var Router = exports.Router = function () {
+
+    /**
+     * 构造函数
+     *
+     * @param {Object?} options 初始化参数
+     * @param {string?} options.mode 路由模式，hash | html5
+     */
+    function Router() {
+        var _this = this;
+
+        var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+            _ref$mode = _ref.mode,
+            mode = _ref$mode === undefined ? 'hash' : _ref$mode;
+
+        _classCallCheck(this, Router);
+
+        this.routes = [];
+        this.routeAlives = [];
+        this.listeners = [];
+
+        /**
+         * locator redirect 事件监听函数
+         *
+         * @param {Object} e locator事件对象
+         */
+        this.locatorRedirectHandler = function (e) {
+            var url = (0, _parseUrl2['default'])(e.url);
+            var routeItem = void 0;
+
+            for (var _i = 0; _i < _this.routes.length; _i++) {
+                var item = _this.routes[_i];
+                var match = item.rule.exec(url.path);
+
+                if (match) {
+                    routeItem = item;
+
+                    // fill params
+                    var keys = item.keys || [];
+                    for (var j = 1; j < match.length; j++) {
+                        var key = keys[j] || j;
+                        var value = match[j];
+                        url.query[key] = value;
+                        url.params[key] = value;
+                    }
+
+                    // fill referrer
+                    url.referrer = e.referrer;
+                    url.config = item.config;
+
+                    break;
+                }
+            }
+
+            var i = 0;
+            var state = 1;
+
+            /**
+             * listener 事件对象
+             *
+             * @type {Object}
+             */
+            var listenerEvent = {
+                hash: url.hash,
+                queryString: url.queryString,
+                query: url.query,
+                path: url.path,
+                referrer: url.referrer,
+                config: url.config,
+                resume: next,
+                suspend: function suspend() {
+                    state = 0;
+                },
+                stop: function stop() {
+                    state = -1;
+                }
+            };
+
+            /**
+             * 尝试运行下一个listener
+             *
+             * @inner
+             */
+            var doNext = function doNext() {
+                if (state > 0) {
+                    if (i < _this.listeners.length) {
+                        _this.listeners[i].call(_this, listenerEvent, url.config);
+                        if (state > 0) {
+                            next();
+                        }
+                    } else {
+                        routeAction();
+                    }
+                }
+            };
+
+            /**
+             * 运行下一个listener
+             *
+             * @inner
+             */
+            function next() {
+                state = 1;
+                i++;
+                doNext();
+            }
+
+            /**
+             * 运行路由行为
+             *
+             * @inner
+             */
+            var routeAction = function routeAction() {
+                if (routeItem) {
+                    _this.doRoute(routeItem, url);
+                } else {
+                    var len = _this.routeAlives.length;
+                    while (len--) {
+                        _this.routeAlives[len].component.dispose();
+                        _this.routeAlives.splice(len, 1);
+                    }
+                }
+            };
+
+            doNext();
+        };
+
+        this.setMode(mode);
+    }
+
+    /**
+     * 添加路由监听器
+     *
+     * @param {function(e, config)} listener 监听器
+     */
+
+
+    Router.prototype.listen = function listen(listener) {
+        this.listeners.push(listener);
+    };
+
+    /**
+     * 移除路由监听器
+     *
+     * @param {Function} listener 监听器
+     */
+
+
+    Router.prototype.unlisten = function unlisten(listener) {
+        var len = this.listeners.length;
+        while (len--) {
+            if (this.listeners[len] === listener) {
+                this.listeners.splice(len, 1);
+            }
+        }
+    };
+
+    /**
+     * 执行路由
+     *
+     * @private
+     * @param {Object} routeItem 路由项
+     * @param {Object} e 路由信息
+     */
+
+
+    Router.prototype.doRoute = function doRoute(routeItem, e) {
+        var _this2 = this;
+
+        var isUpdateAlive = false;
+        var len = this.routeAlives.length;
+
+        while (len--) {
+            var routeAlive = this.routeAlives[len];
+
+            if (routeAlive.id === routeItem.id) {
+                routeAlive.component.data.set('route', e);
+                routeAlive.component._callHook('route');
+                isUpdateAlive = true;
+            } else {
+                routeAlive.component.dispose();
+                this.routeAlives.splice(len, 1);
+            }
+        }
+
+        if (!isUpdateAlive) {
+            if (routeItem.Component) {
+                if (isComponent(routeItem.Component)) {
+                    this.attachCmpt(routeItem, e);
+                } else {
+                    routeItem.Component().then(function (Cmpt) {
+                        // eslint-disable-line
+                        if (isComponent(Cmpt)) {
+                            routeItem.Component = Cmpt;
+                        } else if (Cmpt.__esModule && isComponent(Cmpt['default'])) {
+                            routeItem.Component = Cmpt['default'];
+                        }
+                        _this2.attachCmpt(routeItem, e);
+                    });
+                }
+            } else {
+                routeItem.handler.call(this, e);
+            }
+        }
+    };
+
+    Router.prototype.attachCmpt = function attachCmpt(routeItem, e) {
+        var component = new routeItem.Component();
+        component.data.set('route', e);
+        component._callHook('route');
+
+        var target = routeItem.target;
+        var targetEl = (0, _elementSelector2['default'])(target);
+
+        if (!targetEl) {
+            throw new Error('[SAN-ROUTER ERROR] ' + 'Attach failed, target element "' + routeItem.target + '" is not found.');
+        }
+
+        component.attach(targetEl);
+
+        this.routeAlives.push({
+            component: component,
+            id: routeItem.id
+        });
+    };
+
+    /**
+     * 添加路由项
+     * 当规则匹配时，路由将优先将Component渲染到target中。如果没有包含Component，则执行handler函数
+     *
+     * @private
+     * @param {Object} config 路由项配置
+     * @param {string|RegExp} config.rule 路由规则
+     * @param {Function?} config.handler 路由函数
+     * @param {Function?} config.Component 路由组件
+     * @param {string} config.target 路由组件要渲染到的目标位置
+     * @return {Object} san-router 实例
+     */
+
+
+    Router.prototype.add = function add(config) {
+        var rule = config.rule,
+            handler = config.handler,
+            _config$target = config.target,
+            target = _config$target === undefined ? '#main' : _config$target,
+            Component = config.Component;
+
+        var keys = [''];
+
+        if (typeof rule === 'string') {
+            // 没用path-to-regexp，暂时不提供这么多功能支持
+            var regText = rule.replace(/\/:([a-z0-9_-]+)(?=\/|$)/ig, function (match, key) {
+                keys.push(key);
+                return '/([^/\\s]+)';
+            });
+
+            rule = new RegExp('^' + regText + '$', 'i');
+        }
+
+        if (!(rule instanceof RegExp)) {
+            throw new Error('[SAN-ROUTER ERROR] Rule must be string or RegExp!');
+        }
+
+        var id = guid();
+        this.routes.push({ id: id, rule: rule, handler: handler, keys: keys, target: target, Component: Component, config: config });
+
+        return this;
+    };
+
+    /**
+     * 启动路由功能
+     *
+     * @return {Object} san-router 实例
+     */
+
+
+    Router.prototype.start = function start() {
+        if (!this.isStarted) {
+            this.isStarted = true;
+            this.locator.on('redirect', this.locatorRedirectHandler);
+            this.locator.start();
+            this.locator.reload();
+        }
+
+        return this;
+    };
+
+    /**
+     * 停止路由功能
+     *
+     * @return {Object} san-router 实例
+     */
+
+
+    Router.prototype.stop = function stop() {
+        this.locator.un('redirect', this.locatorRedirectHandler);
+        this.locator.stop();
+        this.isStarted = false;
+
+        return this;
+    };
+
+    /**
+     * 设置路由模式
+     *
+     * @param {string} mode 路由模式，hash | html5
+     * @return {Object} san-router 实例
+     */
+
+
+    Router.prototype.setMode = function setMode(mode) {
+        mode = mode.toLowerCase();
+        if (this.mode === mode) {
+            return;
+        }
+
+        this.mode = mode;
+
+        var restart = false;
+        if (this.isStarted) {
+            this.stop();
+            restart = true;
+        }
+
+        switch (mode) {
+            case 'hash':
+                this.locator = new _hash2['default']();
+                break;
+            case 'html5':
+                this.locator = new _html2['default']();
+        }
+
+        if (restart) {
+            this.start();
+        }
+
+        return this;
+    };
+
+    return Router;
+}();
+
+/**
+ * 默认的路由器实例
+ *
+ * @type {Router}
+ */
+
+
+var router = exports.router = new Router();
+
+/**
+ * 路由链接的 San 组件
+ *
+ * @class
+ */
+exports.Link = _link2['default'];
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports['default'] = elementSelector;
+/*
+*
+* @file 选择器
+* @author vincent lau/413893093@qq.com
+*/
+
+/**
+ * 元素选择器
+ *
+ * @param {string|Element} selector 选择器
+ * @returns {Element}
+ */
+function elementSelector(selector) {
+    switch (typeof selector === 'undefined' ? 'undefined' : _typeof(selector)) {
+        case 'object':
+            return selector;
+
+        case 'string':
+            if (document.querySelector) {
+                return document.querySelector(selector);
+            }
+
+            return document.getElementById(selector.replace(/#/i, ''));
+    }
+}
+
+/***/ }
+/******/ ]);
+});
 
 /***/ }),
-/* 10 */,
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var __san_script__, __san_template__
+var __san_styles__ = {}
+__webpack_require__(12)
+__san_script__ = __webpack_require__(17)
+if (__san_script__ &&
+    __san_script__.__esModule &&
+    Object.keys(__san_script__).length > 1) {
+  console.warn("[san-loader] src/app/home/home.san: named exports in *.san files are ignored.")}
+__san_template__ = __webpack_require__(18)
+var __san_proto__ = {}
+if (__san_script__) {
+  __san_proto__ = __san_script__.__esModule
+    ? __san_script__['default']
+    : __san_script__
+}
+if (__san_template__) {
+  __san_proto__.template = __san_template__
+}
+var san = __webpack_require__(4)
+var __san_exports__ = san.defineComponent(__san_proto__)
+module.exports = __san_exports__
+if (module.exports.__esModule) module.exports = module.exports['default']
+if (!__san_exports__.computed) __san_exports__.computed = {}
+Object.keys(__san_styles__).forEach(function (key) {
+var module = __san_styles__[key]
+__san_exports__.computed[key] = function () { return module }
+})
 
-var content = __webpack_require__(12);
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(13);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -10012,28 +11119,28 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(14)(content, options);
+var update = __webpack_require__(15)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
 if(false) {}
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(13)(false);
+exports = module.exports = __webpack_require__(14)(true);
 // imports
 
 
 // module
-exports.push([module.i, "#div2 {\n  background: red; }\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.parent-wrap {\n  width: 50%;\n  margin: 0 auto;\n  background: #f5f5f5;\n  padding: 10px;\n}\n", "", {"version":3,"sources":["/Users/hahaniu/Desktop/IFE2018/MVVM/TASK_3/src/app/home/home.san?e1db5d3e"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;AAoBA;EACA,WAAA;EACA,eAAA;EACA,oBAAA;EACA,cAAA;CACA","file":"home.san","sourcesContent":["<template>\n  <div class=\"parent-wrap\">\n\n    <img src=\"1.jpg\" width=\"200\" height=\"100\">\n    <div class=\"router-wrap\">\n        <router-link to=\"/dataHandle\" class=\"todo-add\">dataHandle</router-link>\n    </div>\n  </div>\n</template>\n<script>\n  import {DataTypes} from \"san\";\n  import { Link } from 'san-router'\n  export default {\n\n    components: {\n      'router-link': Link\n    },\n  }\n</script>\n<style>\n.parent-wrap {\n  width: 50%;\n  margin: 0 auto;\n  background: #f5f5f5;\n  padding: 10px;\n}\n</style>"],"sourceRoot":""}]);
 
 // exports
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 /*
@@ -10115,7 +11222,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -10181,7 +11288,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(15);
+var	fixUrls = __webpack_require__(16);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -10501,7 +11608,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 
@@ -10596,11 +11703,99 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 16 */
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _san = __webpack_require__(4);
+
+var _sanRouter = __webpack_require__(10);
+
+// <template>
+//   <div class="parent-wrap">
+//
+//     <img src="1.jpg" width="200" height="100">
+//     <div class="router-wrap">
+//         <router-link to="/dataHandle" class="todo-add">dataHandle</router-link>
+//     </div>
+//   </div>
+// </template>
+// <script>
+exports.default = {
+
+  components: {
+    'router-link': _sanRouter.Link
+  }
+  // </script>
+  // <style>
+  // .parent-wrap {
+  //   width: 50%;
+  //   margin: 0 auto;
+  //   background: #f5f5f5;
+  //   padding: 10px;
+  // }
+  // </style>
+  /* generated by san-loader */
+
+};
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = "\n<div class=\"parent-wrap\">\n\n  <img src=\"" + __webpack_require__(19) + "\" width=\"200\" height=\"100\">\n  <div class=\"router-wrap\">\n      <router-link to=\"/dataHandle\" class=\"todo-add\">dataHandle</router-link>\n  </div>\n</div>\n";
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "assets/1-f00dcfb.jpg";
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __san_script__, __san_template__
+var __san_styles__ = {}
+__webpack_require__(21)
+__san_script__ = __webpack_require__(23)
+if (__san_script__ &&
+    __san_script__.__esModule &&
+    Object.keys(__san_script__).length > 1) {
+  console.warn("[san-loader] src/app/dataHandle/dataHandle.san: named exports in *.san files are ignored.")}
+__san_template__ = __webpack_require__(24)
+var __san_proto__ = {}
+if (__san_script__) {
+  __san_proto__ = __san_script__.__esModule
+    ? __san_script__['default']
+    : __san_script__
+}
+if (__san_template__) {
+  __san_proto__.template = __san_template__
+}
+var san = __webpack_require__(4)
+var __san_exports__ = san.defineComponent(__san_proto__)
+module.exports = __san_exports__
+if (module.exports.__esModule) module.exports = module.exports['default']
+if (!__san_exports__.computed) __san_exports__.computed = {}
+Object.keys(__san_styles__).forEach(function (key) {
+var module = __san_styles__[key]
+__san_exports__.computed[key] = function () { return module }
+})
+
+
+/***/ }),
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(17);
+var content = __webpack_require__(22);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -10614,25 +11809,144 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(14)(content, options);
+var update = __webpack_require__(15)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
 if(false) {}
 
 /***/ }),
-/* 17 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(13)(false);
+exports = module.exports = __webpack_require__(14)(true);
 // imports
 
 
 // module
-exports.push([module.i, "#div2 {\n  background: green; }\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.parent-wrap {\n  width: 50%;\n  margin: 0 auto;\n  background: #f5f5f5;\n  padding: 10px;\n}\n\ninput {\n  width: 150px;\n  height: 30px;\n  border-radius: 2px;\n  border: none;\n  margin-right: 10px;\n  font-size: 1.1rem;\n}\n\nbutton {\n  margin-top: 10px;\n  width: 100px;\n  height: 30px;\n}\n", "", {"version":3,"sources":["/Users/hahaniu/Desktop/IFE2018/MVVM/TASK_3/src/app/dataHandle/dataHandle.san?5bbe64a8"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AA6EA;EACA,WAAA;EACA,eAAA;EACA,oBAAA;EACA,cAAA;CACA;;AAEA;EACA,aAAA;EACA,aAAA;EACA,mBAAA;EACA,aAAA;EACA,mBAAA;EACA,kBAAA;CACA;;AAEA;EACA,iBAAA;EACA,aAAA;EACA,aAAA;CACA","file":"dataHandle.san","sourcesContent":["<template>\n  <div class=\"parent-wrap\">\n    <div class=\"input-wrap\">\n          <input value=\"{=name=}\" name=\"name\" type=\"text\" placeholder=\"姓名\" on-input=\"setName\">\n          <input value=\"{=age=}\" name=\"age\" type=\"number\" placeholder=\"年龄\" on-input=\"setAge\">\n          <input value=\"{=desp=}\" name=\"desp\" type=\"text\" placeholder=\"简介\" on-input=\"setdesp\">\n    </div>\n    <div class=\"button-wrap\">\n        <span style=\"margin-right:12px\">信息：</span>\n        <button on-click=\"clearInfo\">移除信息</button>\n    </div>\n    <div class=\"info-wrap\">\n        <p>姓名： {{person.name}}</p>\n        <p>年龄： {{person.age}}</p>\n        <p>简介： {{person.desp}}</p>\n    </div>\n\n    <div class=\"router-wrap\">\n    <router-link to=\"/\">home</router-link>\n    </div>\n  </div>\n</template>\n<script>\n\n  //引入数据校验，路由\n  import {DataTypes} from \"san\";\n  import { Link } from 'san-router'\n\n  export default {\n\n\n    //使用router-link 代替a标签\n    components: {\n      'router-link': Link\n    },\n    initData() {\n      return {\n        // Person model, used for generating the person object\n        person: {\n          name: undefined,\n          age: undefined,\n          desp: undefined\n        }\n      }\n    },\n    //校验\n    dataTypes: {\n        person: DataTypes.shape({\n          name: DataTypes.string,\n          age: DataTypes.number,\n          desp: DataTypes.string\n        })\n    },\n    clearInfo() {\n      // clear person data model\n      this.data.set(\"person\", {\n        name: undefined,\n        age: undefined,\n        desp: undefined\n      });\n      // clear data from input\n      this.data.set(\"name\", undefined);\n      this.data.set(\"age\", undefined);\n      this.data.set(\"desp\", undefined);\n    },\n    setName() {\n      this.data.set(\"person.name\", this.data.get(\"name\"));\n    },\n    setAge() {\n      this.data.set(\"person.age\", isNaN(parseInt(this.data.get(\"age\"))) ? undefined : parseInt(this.data.get(\"age\")));\n    },\n    setdesp() {\n      this.data.set(\"person.desp\", this.data.get(\"desp\"));\n    }\n  }\n</script>\n<style>\n.parent-wrap {\n  width: 50%;\n  margin: 0 auto;\n  background: #f5f5f5;\n  padding: 10px;\n}\n\ninput {\n  width: 150px;\n  height: 30px;\n  border-radius: 2px;\n  border: none;\n  margin-right: 10px;\n  font-size: 1.1rem;\n}\n\nbutton {\n  margin-top: 10px;\n  width: 100px;\n  height: 30px;\n}\n</style>"],"sourceRoot":""}]);
 
 // exports
 
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _san = __webpack_require__(4);
+
+var _sanRouter = __webpack_require__(10);
+
+// <template>
+//   <div class="parent-wrap">
+//     <div class="input-wrap">
+//           <input value="{=name=}" name="name" type="text" placeholder="姓名" on-input="setName">
+//           <input value="{=age=}" name="age" type="number" placeholder="年龄" on-input="setAge">
+//           <input value="{=desp=}" name="desp" type="text" placeholder="简介" on-input="setdesp">
+//     </div>
+//     <div class="button-wrap">
+//         <span style="margin-right:12px">信息：</span>
+//         <button on-click="clearInfo">移除信息</button>
+//     </div>
+//     <div class="info-wrap">
+//         <p>姓名： {{person.name}}</p>
+//         <p>年龄： {{person.age}}</p>
+//         <p>简介： {{person.desp}}</p>
+//     </div>
+//
+//     <div class="router-wrap">
+//     <router-link to="/">home</router-link>
+//     </div>
+//   </div>
+// </template>
+// <script>
+
+//引入数据校验，路由
+exports.default = {
+
+  //使用router-link 代替a标签
+  components: {
+    'router-link': _sanRouter.Link
+  },
+  initData: function initData() {
+    return {
+      // Person model, used for generating the person object
+      person: {
+        name: undefined,
+        age: undefined,
+        desp: undefined
+      }
+    };
+  },
+
+  //校验
+  dataTypes: {
+    person: _san.DataTypes.shape({
+      name: _san.DataTypes.string,
+      age: _san.DataTypes.number,
+      desp: _san.DataTypes.string
+    })
+  },
+  clearInfo: function clearInfo() {
+    // clear person data model
+    this.data.set("person", {
+      name: undefined,
+      age: undefined,
+      desp: undefined
+    });
+    // clear data from input
+    this.data.set("name", undefined);
+    this.data.set("age", undefined);
+    this.data.set("desp", undefined);
+  },
+  setName: function setName() {
+    this.data.set("person.name", this.data.get("name"));
+  },
+  setAge: function setAge() {
+    this.data.set("person.age", isNaN(parseInt(this.data.get("age"))) ? undefined : parseInt(this.data.get("age")));
+  },
+  setdesp: function setdesp() {
+    this.data.set("person.desp", this.data.get("desp"));
+  }
+};
+// </script>
+// <style>
+// .parent-wrap {
+//   width: 50%;
+//   margin: 0 auto;
+//   background: #f5f5f5;
+//   padding: 10px;
+// }
+//
+// input {
+//   width: 150px;
+//   height: 30px;
+//   border-radius: 2px;
+//   border: none;
+//   margin-right: 10px;
+//   font-size: 1.1rem;
+// }
+//
+// button {
+//   margin-top: 10px;
+//   width: 100px;
+//   height: 30px;
+// }
+// </style>
+/* generated by san-loader */
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports) {
+
+module.exports = "\n<div class=\"parent-wrap\">\n  <div class=\"input-wrap\">\n        <input value=\"{=name=}\" name=\"name\" type=\"text\" placeholder=\"姓名\" on-input=\"setName\">\n        <input value=\"{=age=}\" name=\"age\" type=\"number\" placeholder=\"年龄\" on-input=\"setAge\">\n        <input value=\"{=desp=}\" name=\"desp\" type=\"text\" placeholder=\"简介\" on-input=\"setdesp\">\n  </div>\n  <div class=\"button-wrap\">\n      <span style=\"margin-right:12px\">信息：</span>\n      <button on-click=\"clearInfo\">移除信息</button>\n  </div>\n  <div class=\"info-wrap\">\n      <p>姓名： {{person.name}}</p>\n      <p>年龄： {{person.age}}</p>\n      <p>简介： {{person.desp}}</p>\n  </div>\n\n  <div class=\"router-wrap\">\n  <router-link to=\"/\">home</router-link>\n  </div>\n</div>\n";
 
 /***/ })
 /******/ ]);
