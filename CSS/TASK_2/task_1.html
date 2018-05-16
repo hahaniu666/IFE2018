@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>transform 2D变形</title>
+    <style>
+
+        body {
+            margin: 100px;
+        }
+
+        .box0, .box1, .box2, .box3, .box4, .box5 {
+
+            width: 60px;
+            height: 68px;
+            line-height: 68px;
+            text-align: center;
+            border: 1px solid #d5d5d5;
+            float: left;
+            margin-left: 100px;
+        }
+
+        .box1 {
+            transform: skewX(30deg)
+        }
+
+        .box2 {
+            transform: scaleX(0.5);
+        }
+
+        .box3 {
+            transform: rotate(45deg)
+        }
+
+        .box4 {
+            transform: translate(10px, 20px)
+        }
+
+        .box5 {
+
+            /*
+                注意：多个值有顺序问题，不同顺序会显示不同效果
+            */
+            transform: skewX(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="box0">
+    box0
+</div>
+
+<div class="box1">
+    box1
+</div>
+
+<div class="box2">
+    box2
+</div>
+
+<div class="box3">
+    box3
+</div>
+
+<div class="box4">
+    box4
+</div>
+
+<div class="box5">
+    box5
+</div>
+
+<script>
+
+
+</script>
+
+
+</body>
+</html>
