@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>transform 2D变形</title>
+    <style>
+
+        body {
+            margin: 100px;
+        }
+
+        .box {
+            width: 250px;
+            height: 350px;
+            border: 1px solid #d5d5d5;
+            position: relative;
+            /*用perspective 激活一个3D空间  景深 景深就是我们的肉眼距离显示器的距离 可以放在动画元素中*/
+            perspective: 500px;
+            /*-webkit-perspective-origin: 50% 50%;*/
+            perspective-origin: 50% 50%;
+        }
+
+        .obverseSide, .opposite {
+            width: 250px;
+            height: 350px;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            /*transform-style
+
+            这个属性指定了子元素如何在空间中展示
+                 只有两个属性值：flat（默认）和preserve-3d
+                 flat 表示所有子元素在2D平面呈现
+            preserve-3d 表示所有子元素在3D平面呈现
+            （prederve是保护、维持的意思，preserve-3d就是保持三维空间的意思）
+                当然如果我们想要3D的效果，就要使用 transform-style: preserve-3d;
+            */
+            transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d; /* Safari 和 Chrome */
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            transition: 1s;
+        }
+
+        .obverseSide {
+            transform: rotateY(0deg);
+        }
+
+        .opposite {
+            transform: rotateY(180deg);
+        }
+
+
+        .box:hover .obverseSide {
+            transform: rotateY(180deg);
+        }
+
+        .box:hover .opposite {
+            transform: rotateY(360deg);
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <img class="obverseSide" src="正面.jpg" alt="">
+    <img class="opposite" src="反面.jpg" alt="">
+</div>
+
+
+<script>
+
+
+</script>
+
+
+</body>
+</html>
