@@ -1,0 +1,57 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css" media="screen">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            width: 100px;
+            height: 100px;
+            background: #6c0;
+        }
+
+        .container .ul li {
+            width: 100px;
+            height: 20px;
+            background: #f00;
+            margin-bottom: 10px;
+            list-style: none;
+        }
+
+        .container {
+            border: 1px solid #000;
+        }
+
+        .container:hover ul.ul > li:nth-child(2) {
+            background: #000;
+        }
+
+        /*.contianer:hover div.wrap{*/
+        /*background: #000;*/
+        /*}*/
+
+        /*
+            同级元素  A B   A:hover改变 B样式  用+ 选择兄弟元素
+        */
+        .container:hover + .wrap {
+            background: #f00;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul class="ul">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<div class="wrap"></div>
+</body>
+</html>
