@@ -2,6 +2,8 @@
 
 1.当hover的元素和需要改变样式的元素是父子关系的时候，可以这么写（.container:hover ul.ul>li:nth-child(2)）直接在hover后面加上空格，加上需要改变你的元素
      
+  [查看效果](https://hahaniu666.github.io/IFE2018/CSS/TASK_3/test2.html)
+  
 ```css
     .container:hover ul.ul > li:nth-child(2) {
         background: #000;
@@ -18,6 +20,8 @@
     </div>       
 
 2.此时是hover container容器，改变wrap框的背景颜色，但发现container和wrap不是父子关系而是兄弟关系，这时候这样写（.contianer:hover div.wrap{background: #000;}）不起效果。应该的写法是（.container:hover +.wrap{background:#f00;}）
+
+ [查看效果](https://hahaniu666.github.io/IFE2018/CSS/TASK_3/test.html)
 
 ```css
     .container:hover + .wrap {
