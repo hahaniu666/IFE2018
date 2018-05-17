@@ -5,207 +5,251 @@
     <title>animation 动画</title>
     <style>
 
-        /*居中显示*/
-        html {
+        * {
             margin: 0;
             padding: 0;
-            height: 100%;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
         }
 
+        html,
         body {
-            width: 100%;
             height: 100%;
         }
 
-        .wrap {
-            width: 100%;
-            height: 100%;
-
+        .wrapper {
             position: relative;
-        }
-
-        .wrap > img {
             width: 100%;
             height: 100%;
-            position: absolute;
-            display: none;
+            overflow: hidden;
+
         }
 
-        .wrap .cat-bottom {
-            width: 1600px;
-            height: 200px;
+        .pointers {
             position: absolute;
-            bottom: 20px;
             left: 50%;
-            transform: translateX(-50%);
+            top: 85%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
         }
 
-        .wrap .cat-bottom img {
-            width: 300px;
-            height: 200px;
-            margin-right: 20px;
-            float: left;
-            animation-fill-mode: forwards;
+        .pointers li {
+            display: inline-block;
         }
 
-        @keyframes img1 {
+        .pointers li img {
+            width: 170px;
+            height: 120px;
+            z-index: 999;
+        }
+
+        .img-box {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: url(img/cat1.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .animation1 {
+            -webkit-animation: image1 .5s ease-out forwards;
+            animation: image1 .5s ease-out forwards;
+        }
+
+        .animation2 {
+            -webkit-animation: image2 .5s ease-in forwards;
+            animation: image2 .5s ease-in forwards;
+        }
+
+        .animation3 {
+            -webkit-animation: image3 1s ease-in forwards;
+            animation: image3 1s ease-in forwards;
+        }
+
+        .animation4 {
+            -webkit-transform-origin: center;
+            -moz-transform-origin: center;
+            -ms-transform-origin: center;
+            transform-origin: center;
+            -webkit-animation: image4 1s ease-out forwards;
+            animation: image4 1s ease-out forwards;
+        }
+
+        .animation5 {
+            -webkit-animation: image5 .7s ease-in-out forwards;
+            animation: image5 .7s ease-in-out forwards;
+        }
+
+        @-webkit-keyframes image1 {
             0% {
-                transform: translateX(-500px);
+                left: -500px;
             }
             100% {
-                transform: translateX(0px);
-            }
-
-        }
-
-        @keyframes img2 {
-            0% {
-                transform: translateY(-350px);
-            }
-            100% {
-                transform: translateY(0px);
+                left: 0px;
             }
         }
-
-        @keyframes img3 {
+        @-moz-keyframes image1 {
             0% {
-                transform: scale(0.1);
+                left: -500px;
             }
             100% {
-                transform: scale(1);
+                left: 0px;
             }
-
         }
-
-        @keyframes img4 {
+        @keyframes image1 {
             0% {
-                transform: scale(2);
+                left: -500px;
             }
             100% {
-                transform: scale(1);
+                left: 0px;
             }
         }
 
-        @keyframes img5 {
+        @-webkit-keyframes image2 {
             0% {
-                transform: scale(0.1) rotate(-360deg);
+                top: 350px;
             }
             100% {
-                transform: scale(1) rotate(0deg);
+                top: 0px;
+            }
+        }
+        @-moz-keyframes image2 {
+            0% {
+                top: 350px;
+            }
+            100% {
+                top: 0px;
+            }
+        }
+        @keyframes image2 {
+            0% {
+                top: 350px;
+            }
+            100% {
+                top: 0px;
+            }
+        }
+
+        @-webkit-keyframes image3 {
+            0% {
+                transform: scale(0.1)
+            }
+            100% {
+                transform: scale(1)
+            }
+        }
+        @-moz-keyframes image3 {
+            0% {
+                transform: scale(0.1)
+            }
+            100% {
+                transform: scale(1)
+            }
+        }
+        @keyframes image3 {
+            0% {
+                transform: scale(0.1)
+            }
+            100% {
+                transform: scale(1)
+            }
+        }
+
+        @-webkit-keyframes image4 {
+            0% {
+                transform: scale(2)
+            }
+            100% {
+                transform: scale(1)
+            }
+        }
+        @-moz-keyframes image4 {
+            0% {
+                transform: scale(2)
+            }
+            100% {
+                transform: scale(1)
+            }
+        }
+        @keyframes image4 {
+            0% {
+                transform: scale(2)
+            }
+            100% {
+                transform: scale(1)
+            }
+        }
+
+        @-webkit-keyframes image5 {
+            0% {
+                transform: rotate(-360deg) scale(0.1)
+            }
+            100% {
+                transform: rotate(0deg) scale(1)
+            }
+        }
+        @-moz-keyframes image5 {
+            0% {
+                transform: rotate(-360deg) scale(0.1)
+            }
+            100% {
+                transform: rotate(0deg) scale(1)
+            }
+        }
+        @keyframes image5 {
+            0% {
+                transform: rotate(-360deg) scale(0.1)
+            }
+            100% {
+                transform: rotate(0deg) scale(1)
             }
         }
     </style>
 </head>
 <body>
 
-<div class="wrap">
-    <img class="wrapImg img1" src="img/cat1.jpg" alt="">
-    <img class="wrapImg img2" src="img/cat2.jpg" alt="">
-    <img class="wrapImg img3" src="img/cat3.jpg" alt="">
-    <img class="wrapImg img4" src="img/cat4.jpg" alt="">
-    <img class="wrapImg img5" src="img/cat5.jpg" alt="">
-
-
-    <div class="cat-bottom">
-        <img class="img img6" src="img/cat1.jpg" alt="">
-        <img class="img img7" src="img/cat2.jpg" alt="">
-        <img class="img img8" src="img/cat3.jpg" alt="">
-        <img class="img img9" src="img/cat4.jpg" alt="">
-        <img class="img img10" src="img/cat5.jpg" alt="">
-    </div>
-
+<div class="wrapper">
+    <div class="img-box"></div>
+    <ul class="pointers">
+        <li>
+            <img src="img/cat1.jpg" />
+        </li>
+        <li>
+            <img src="img/cat2.jpg" />
+        </li>
+        <li>
+            <img src="img/cat3.jpg" />
+        </li>
+        <li>
+            <img src="img/cat4.jpg" />
+        </li>
+        <li>
+            <img src="img/cat5.jpg" />
+        </li>
+    </ul>
 </div>
+<script type="text/javascript">
+    function $(selector) {
+        return document.querySelectorAll(selector);
+    }
+    var elements = $(".pointers li");
+    for (var i = 0; i < elements.length; i++) {
+        var bgimage = "";
+        elements[i].index = i;
+        elements[i].onclick = function () {
+            var imgBox = $(".img-box")[0];
+            var imgUrl = "url(img/cat" + (this.index + 1) + ".jpg) no-repeat";
+            imgBox.style.background = imgUrl;
+            imgBox.style.backgroundSize = "100% 100%";
+            imgBox.className = "img-box animation" + (this.index + 1);
+            $(".wrapper")[0].style.background = bgimage;
+            $(".wrapper")[0].style.backgroundSize = "100% 100%";
+            bgimage = imgUrl;
 
-
-<script>
-
-    var imgList = [
-        "img/cat1.jpg",
-        "img/cat2.jpg",
-        "img/cat3.jpg",
-        "img/cat4.jpg",
-        "img/cat5.jpg"
-    ];
-
-    var imgs = document.getElementsByClassName("img");
-    var wrapImg = document.getElementsByClassName("wrapImg");
-
-    var img1 = document.getElementsByClassName("img1")[0];
-    var img2 = document.getElementsByClassName("img2")[0];
-    var img3 = document.getElementsByClassName("img3")[0];
-    var img4 = document.getElementsByClassName("img4")[0];
-    var img5 = document.getElementsByClassName("img5")[0];
-    var img6 = document.getElementsByClassName("img6")[0];
-    var img7 = document.getElementsByClassName("img7")[0];
-    var img8 = document.getElementsByClassName("img8")[0];
-    var img9 = document.getElementsByClassName("img9")[0];
-    var img10 = document.getElementsByClassName("img10")[0];
-
-    var wrap = document.getElementsByClassName("wrap")[0];
-    console.log('imgs', imgs);
-
-
-    //放在style里面的css
-    function setCss(obj, css) {
-
-        console.log('obj', obj);
-        console.log('css', css);
-
-        for (var attr in css) {
-            obj.style[attr] = css[attr];
         }
     }
-
-    img6.onclick = function () {
-        console.log(1);
-
-        for (var z = 0; z < wrapImg.length; z++) {
-            console.log('wrapImg',wrapImg);
-            setCss(img1, {"animation": "", "display": "none"});
-        }
-
-        setCss(img1, {"animation": "img1 0.5s ease-out 1", "display": "block"});
-    };
-
-    img7.onclick = function () {
-        console.log(1);
-        setCss(img2, {"animation": "img2 0.5s  ease-out  1", "display": "block"});
-    };
-    img8.onclick = function () {
-        console.log(1);
-        setCss(img3, {"animation": "img3 1s ease-in 1", "display": "block"});
-    };
-    img9.onclick = function () {
-        console.log(1);
-        setCss(img4, {"animation": "img4 1s ease-out 1", "display": "block"});
-    };
-    img10.onclick = function () {
-        console.log(1);
-        setCss(img5, {"animation": "img5 0.7s ease-in-out 1", "display": "block"});
-    };
-
-    // for (var i = 0; i < imgs.length; i++) {
-    //     console.log('imgs1', imgs[i]);
-    //     var imgbtn = "img" + i;
-    //     console.log('imgbtn', imgbtn);
-    //
-    //     imgs[i].onclick = function () {
-    //
-    //         console.log('imgs[i]', this.i);
-    //
-    //         console.log('imgbtn', imgbtn);
-    //
-    //         // for (var k = 0; k < imgList.length; k++) {
-    //         //     wrap.style.backgroundImage = "url(" + imgList[k] + ")";
-    //         // }
-    //     }
-    //
-    // }
-
 </script>
-
-
 </body>
 </html>
