@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>transform 2D变形</title>
+    <style>
+
+        /*居中显示*/
+        body {
+            margin: 0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        /*父级box添加样式*/
+        .box {
+            /*居中显示*/
+            margin: 100px auto;
+
+            width: 150px;
+            height: 150px;
+            /*border: 1px solid #d5d5d5;*/
+
+            /*定位父级所在*/
+            position: relative;
+
+            /*3D空间*/
+            -webkit-perspective: 300px;
+            -moz-perspective: 300px;
+            perspective: 300px;
+
+        }
+
+        /*给6个面添加统一的样式*/
+        .one, .two, .three, .four, .five, .six {
+
+            /*定位居中*/
+            position: absolute;
+            /*left: 50%;*/
+            /*top: 50%;*/
+
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            line-height: 150px;
+            border: 2px solid rgba(66, 133, 244, 0.5);
+
+            /*保持三维空间*/
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+
+            /*perspective-origin: 50% 50%;*/
+
+            -webkit-transition: 3s;
+            transition: 3s;
+        }
+
+        /*单个样式
+        * 1  对  6
+        * 2  对  4
+        * 3  对  5
+        */
+        .one {
+            transform: rotateY(0deg) translateZ(75px);
+        }
+
+        .six {
+            /*
+                先旋转，在偏移，偏移的基点是原点经过旋转之后的位置
+            */
+            /*-webkit-transform: translate(-50%, -50%) rotate(180deg);*/
+            /*transform: translate(-50%, -50%) rotate(180deg);*/
+
+            /*
+                先偏移，在旋转，
+            */
+            /*-webkit-transform: translate(-50%, -50%) rotate(180deg);*/
+            /*transform: translate(-50%, -50%) rotate(180deg);*/
+
+            transform: rotateY(180deg) translateZ(75px);
+        }
+
+        /*旋转90deg*/
+        .two {
+            transform: rotateX(90deg) rotateZ(0deg) translateZ(75px);
+        }
+
+        .four {
+            transform: rotateX(-90deg) rotateZ(180deg) translateZ(75px);
+        }
+
+        .three {
+            transform: rotateY(90deg) translateZ(75px);
+        }
+
+        .five {
+            transform: rotateY(-90deg) translateZ(75px);
+        }
+
+        /*hover 效果*/
+        /*
+        * 1 对应 6   绕y轴旋转  所以是y轴旋转角度   translateZ  沿z轴偏移75px
+        */
+        .box:hover .one {
+            transform: rotateY(180deg) translateZ(75px);
+        }
+
+        .box:hover .six {
+            transform: rotateY(360deg) translateZ(75px);
+        }
+
+        /*x
+        * 2 对应 4   垂直y轴旋转 所以应该是z轴旋转角度    translateZ  沿z轴偏移75px
+        */
+        .box:hover .two {
+            transform: rotateX(90deg) rotateZ(-180deg) translateZ(75px);
+        }
+
+        .box:hover .four {
+            transform: rotateX(-90deg) rotateZ(360deg) translateZ(75px);
+
+        }
+
+        /*x
+        * 3 对应 5   绕y轴旋转   所以是y轴旋转角度     translateZ  沿z轴偏移75px
+        */
+        .box:hover .three {
+            transform: rotateY(270deg) translateZ(75px);
+        }
+
+        .box:hover .five {
+            transform: rotateY(90deg) translateZ(75px);
+        }
+    </style>
+</head>
+<body>
+
+<!--父级box-->
+<div class="box">
+    <!--6个面-->
+    <div class="one">1</div>
+    <div class="two">2</div>
+    <div class="three">3</div>
+    <div class="four">4</div>
+    <div class="five">5</div>
+    <div class="six">6</div>
+</div>
+
+
+<script>
+
+
+</script>
+
+
+</body>
+</html>
