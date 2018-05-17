@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>transform 2D变形</title>
+    <style>
+
+        /*居中显示*/
+        body {
+            margin: 0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .wrap{
+            /*3D空间*/
+            -webkit-perspective: 300px;
+            -moz-perspective: 300px;
+            perspective: 300px;
+
+        }
+        /*父级box添加样式*/
+        .box {
+            /*居中显示*/
+            margin: 75px auto;
+
+            width: 150px;
+            height: 150px;
+            /*border: 1px solid #d5d5d5;*/
+
+            /*定位父级所在*/
+            position: relative;
+
+
+            -webkit-animation: move 5s linear infinite;
+            -moz-animation: move 5s linear infinite;
+            animation: move 5s linear infinite;
+
+            /*保持三维空间*/
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+
+        /*给6个面添加统一的样式*/
+        .one, .two, .three, .four, .five, .six {
+
+            /*定位居中*/
+            position: absolute;
+            /*left: 50%;*/
+            /*top: 50%;*/
+
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            line-height: 150px;
+            border: 2px solid rgba(66, 133, 244, 0.5);
+
+        }
+
+        /*单个样式
+        * 1  对  6
+        * 2  对  4
+        * 3  对  5
+        */
+        .one {
+            -webkit-transform: translateZ(75px);
+            -moz-transform: translateZ(75px);
+            -ms-transform: translateZ(75px);
+            transform: translateZ(75px)
+        }
+
+        .six {
+            -webkit-transform: translateZ(-75px);
+            -moz-transform: translateZ(-75px);
+            -ms-transform: translateZ(-75px);
+            transform: translateZ(-75px)
+        }
+
+        /*旋转90deg*/
+        .two {
+            -webkit-transform: rotateX(90deg) translateZ(75px);
+            -moz-transform: rotateX(90deg) translateZ(75px);
+            -ms-transform: rotateX(90deg) translateZ(75px);
+            transform: rotateX(90deg) translateZ(75px);
+        }
+
+        .four {
+            -webkit-transform: rotateX(90deg) translateZ(-75px);
+            -moz-transform: rotateX(90deg) translateZ(-75px);
+            -ms-transform: rotateX(90deg) translateZ(-75px);
+            transform: rotateX(90deg) translateZ(-75px);
+        }
+
+        .three {
+            -webkit-transform: rotateY(-90deg) translateZ(75px);
+            -moz-transform: rotateY(-90deg) translateZ(75px);
+            -ms-transform: rotateY(-90deg) translateZ(75px);
+            transform: rotateY(-90deg) translateZ(75px);
+        }
+
+        .five {
+            -webkit-transform: rotateY(90deg) translateZ(75px);
+            -moz-transform: rotateY(90deg) translateZ(75px);
+            -ms-transform: rotateY(90deg) translateZ(75px);
+            transform: rotateY(90deg) translateZ(75px);
+        }
+
+        @keyframes move {
+            to {
+                -webkit-transform: rotateY(360deg);
+                -moz-transform: rotateY(360deg);
+                -ms-transform: rotateY(360deg);
+                transform: rotateY(360deg)
+
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<!--父级box-->
+<div class="wrap">
+    <div class="box">
+        <!--6个面-->
+        <div class="one">1</div>
+        <div class="two">2</div>
+        <div class="three">3</div>
+        <div class="four">4</div>
+        <div class="five">5</div>
+        <div class="six">6</div>
+    </div>
+</div>
+
+
+
+<script>
+
+
+</script>
+
+
+</body>
+</html>
