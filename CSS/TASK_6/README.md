@@ -1,11 +1,13 @@
 # js中的一些操作
 
+
+    
+封装一个选择dom的事件，用法如下：
+
     function $(selector) {
         return document.querySelectorAll(selector);
     }
     
-封装一个选择dom的事件，用法如下：
-
 如：html中布局如下
 
     <div class="wrapper">
