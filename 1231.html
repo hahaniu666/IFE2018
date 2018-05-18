@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .aaa {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+
+        p {
+            background: blue;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="aaa"></div>
+
+<script>
+
+    var aaa = document.getElementsByClassName("aaa")[0];
+
+    console.log('aaa  L', aaa.offsetLeft);
+    console.log('aaa  t', aaa.offsetTop);
+
+    var aaaLeft = aaa.offsetLeft;
+    var aaaTop = aaa.offsetTop;
+
+    var arr = [        //原来的数组    接口返回的数据
+        {
+            name: '1',
+            num: 20,
+        },
+        {
+            name: '2',
+            num: 30,
+        },
+        {
+            name: '3',
+            num: 40,
+        },
+        {
+            name: '4',
+            num: 50,
+        }
+    ];
+
+
+    var newArr = [];
+
+    for (var i = 0; i < arr.length; i++) {
+        var num = Math.floor(Math.random() * 10);
+
+        console.log('num', num);
+
+        var newX = aaaLeft * num;
+        var newY = aaaTop * num;
+
+        newArr.push({
+            dara: arr[i],
+            top: newY,
+            left: newX,
+        });
+
+        console.log(newArr);
+    }
+
+
+
+    function setCss(obj, css) {
+
+        console.log('obj', obj);
+        console.log('css', css);
+
+        for (var attr in css) {
+            obj.style[attr] = css[attr];
+        }
+    }
+
+
+    if (newArr) {
+        for (var j = 0; j < newArr.length; j++) {
+            var p = document.createElement('p');
+            console.log('newArr[j].left', newArr[j].left);
+            console.log('newArr[j].top', newArr[j].top);
+
+
+            p.style.left = newArr[j].left;
+            p.style.top = newArr[j].top;
+
+
+            document.body.appendChild(p);
+
+
+            var ap = document.getElementsByTagName("p");
+            ap[j].style.left = newArr[j].left + 'px';
+            ap[j].style.top = newArr[j].top + 'px';
+            console.log('ap', ap);
+
+            if (i == newArr.length - 1) {
+                setCss(ap, {"top": newArr[j].top, "left": newArr[j].left});
+            }
+        }
+    }
+
+
+    // // 后台返回数组
+    // arr = ['1', '2', '3', '4'];
+    //
+    // // 定义一个位置
+    //
+    // let x = 20 + 'px';
+    // let y = 30 + 'px';
+    //
+    // //循环这个数组
+    //
+    // for (let i in arr) {
+    //
+    //     //生成随机数     10以内的随机数  10可以换成  任意数字
+    //     let num = Math.floor(Math.random() * 10);
+    //
+    //     //然后新的位置
+    //
+    //     let newX = x + num;
+    //     let newY = y + num;
+    //
+    //     //然后想办法把  newX 和 newY  赋值到你的位置上
+    //
+    //
+    //
+    // }
+
+
+</script>
+</body>
+</html>
