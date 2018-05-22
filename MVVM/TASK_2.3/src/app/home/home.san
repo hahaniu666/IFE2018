@@ -1,0 +1,27 @@
+<template>
+  <div class="parent-wrap">
+
+    <img src="1.jpg" width="200" height="100">
+    <div class="router-wrap">
+        <router-link to="/dataHandle" class="todo-add">dataHandle</router-link>
+    </div>
+  </div>
+</template>
+<script>
+  import {DataTypes} from "san";
+  import { Link } from 'san-router'
+  export default {
+
+    components: {
+      'router-link': Link
+    },
+  }
+</script>
+<style>
+.parent-wrap {
+  width: 50%;
+  margin: 0 auto;
+  background: #f5f5f5;
+  padding: 10px;
+}
+</style>

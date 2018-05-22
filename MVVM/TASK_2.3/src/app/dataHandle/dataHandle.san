@@ -1,0 +1,99 @@
+<template>
+  <div class="parent-wrap">
+    <div class="input-wrap">
+          <input value="{=name=}" name="name" type="text" placeholder="姓名" on-input="setName">
+          <input value="{=age=}" name="age" type="number" placeholder="年龄" on-input="setAge">
+          <input value="{=desp=}" name="desp" type="text" placeholder="简介" on-input="setdesp">
+    </div>
+    <div class="button-wrap">
+        <span style="margin-right:12px">信息：</span>
+        <button on-click="clearInfo">移除信息</button>
+    </div>
+    <div class="info-wrap">
+        <p>姓名： {{person.name}}</p>
+        <p>年龄： {{person.age}}</p>
+        <p>简介： {{person.desp}}</p>
+    </div>
+
+    <div class="router-wrap">
+    <router-link to="/">home</router-link>
+    </div>
+  </div>
+</template>
+<script>
+
+  //引入数据校验，路由
+  import {DataTypes} from "san";
+  import { Link } from 'san-router'
+
+  export default {
+
+
+    //使用router-link 代替a标签
+    components: {
+      'router-link': Link
+    },
+    initData() {
+      return {
+        // Person model, used for generating the person object
+        person: {
+          name: undefined,
+          age: undefined,
+          desp: undefined
+        }
+      }
+    },
+    //校验
+    dataTypes: {
+        person: DataTypes.shape({
+          name: DataTypes.string,
+          age: DataTypes.number,
+          desp: DataTypes.string
+        })
+    },
+    clearInfo() {
+      // clear person data model
+      this.data.set("person", {
+        name: undefined,
+        age: undefined,
+        desp: undefined
+      });
+      // clear data from input
+      this.data.set("name", undefined);
+      this.data.set("age", undefined);
+      this.data.set("desp", undefined);
+    },
+    setName() {
+      this.data.set("person.name", this.data.get("name"));
+    },
+    setAge() {
+      this.data.set("person.age", isNaN(parseInt(this.data.get("age"))) ? undefined : parseInt(this.data.get("age")));
+    },
+    setdesp() {
+      this.data.set("person.desp", this.data.get("desp"));
+    }
+  }
+</script>
+<style>
+.parent-wrap {
+  width: 50%;
+  margin: 0 auto;
+  background: #f5f5f5;
+  padding: 10px;
+}
+
+input {
+  width: 150px;
+  height: 30px;
+  border-radius: 2px;
+  border: none;
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+button {
+  margin-top: 10px;
+  width: 100px;
+  height: 30px;
+}
+</style>

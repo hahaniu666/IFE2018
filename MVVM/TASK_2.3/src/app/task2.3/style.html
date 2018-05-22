@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quick Start</title>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/san@latest"></script>
+
+    <style>
+
+        #div2 {
+
+        }
+
+        ul {
+            width: 300px;
+            display: -webkit-flex; /* Safari */
+            display: flex;
+            flex-direction: column;
+        }
+
+        ul li {
+            display: -webkit-flex; /* Safari */
+            display: flex;
+            flex-direction: row;
+            border-top: 1px solid #d5d5d5;
+            border-right: 1px solid #d5d5d5;
+            justify-content: center;
+
+            align-items: stretch;
+
+        }
+
+        ul li:last-of-type {
+            border-bottom: 1px solid #d5d5d5;
+        }
+
+        ul li p {
+            flex: 1;
+            border: 1px solid #d5d5d5;
+            text-align: center;
+            border-top: none;
+            border-bottom: none;
+            border-right: none;
+            padding: 5px;
+            margin: 0;
+            justify-content: center;
+            align-items: stretch;
+            /* justify-content: center; */
+            display: flex;
+        }
+
+        ul li p span {
+            box-sizing: border-box;
+            margin: 0;
+            /*padding: 0;*/
+            padding: 5px 0;
+            align-self: center;
+        }
+
+        ul li p span.aset {
+            box-sizing: border-box;
+            margin: 0;
+            /*padding: 0;*/
+            border: 1px solid #d5d5d5;
+            background: #f5f5f5;
+            width: 60px;
+            padding: 5px 0;
+            align-self: center;
+            /* 写两个是为了照顾IE5，它只认hand。*/
+            cursor: pointer;
+            cursor: hand;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="div2">
+
+</div>
+<script>
+
+
+    var MyApp2 = san.defineComponent({
+        template: '' +
+        '<ul>' +
+        ' <button on-click="addUser()">添加</button> ' +
+        '   <li>' +
+        '       <p>姓名</p>' +
+        '       <p>审核状态</p>' +
+        '       <p>操作</p> ' +
+        '   </li> ' +
+        '   <li s-for="item,index in list">' +
+        '       <p> <span>{{item.name}}</span></p> ' +
+        '       <p> <span>{{item.checkStatus}}</span> </p>' +
+        '       <p s-if="item.checkType== \'yep\' || item.checkType== \'nop\'"><span class="aset" on-click="rm(index)">删除</span></p> ' +
+        '       <p s-if="item.checkType== \'applying\'"> <span class="aset" on-click="aset(index)">审核</span> </p> ' +
+        '   </li>' +
+        '</ul>',
+
+
+
+        /**
+         * 定义数据
+         *
+         * {
+         *      id          : "",           // 此条数据标识
+         *      name        : "",           // 姓名。
+         *      checkStatus : "",           // 审核状态  中文 ： 合格  审核中     不合格  用于展示
+         *      checkType   : ...,          // 审核状态  英文 ： yep  applying   nop   用于s-if判断
+         * }
+         *
+         */
+
+        attached: function () {
+            this.data.set('list', [
+                {
+                    id: '1',
+                    name: '张三',
+                    checkStatus: '合格',
+                    checkType: 'yep',
+
+                }, {
+                    id: '2',
+                    name: '张四',
+                    checkStatus: '不合格',
+                    checkType: 'nop',
+
+                }, {
+                    id: '3',
+                    name: '张五',
+                    checkStatus: '审核中',
+                    checkType: 'applying',
+
+                }, {
+                    id: '4',
+                    name: '张六',
+                    checkStatus: '审核中',
+                    checkType: 'applying',
+
+                }, {
+                    id: '5',
+                    name: '张七',
+                    checkStatus: '审核中',
+                    checkType: 'applying',
+
+                },
+            ]);
+        },
+
+        //添加数据
+        addUser: function () {
+
+            var list = this.data.get('list');
+
+            console.log('list', list);
+            console.log('list', list.length);
+            console.log('list.id', Number(list[list.length - 1].id));
+
+            //  字符串计算时候应该转成数字类型，否则+完事NAN
+            var id = Number(list[list.length - 1].id) + 1;
+
+            this.data.push('list', {
+                id: id,
+                name: '张' + (id + 2),
+                checkStatus: '审核中',
+                checkType: 'applying',
+            });
+        },
+
+        //审核
+        aset: function (index) {
+            console.log(index);
+
+            // this.data.set('list', {
+            //     name: '张四',
+            //     checkStatus: '审核中',
+            //     checkType: 'applying',
+            //
+            // });
+
+            this.data.set('list[' + index + '].checkStatus', '合格');
+            this.data.set('list[' + index + '].checkType', 'yep');
+
+        },
+        // 删除  通过index方式
+        rm: function (index) {
+            this.data.removeAt('list', index);
+        }
+
+    });
+
+
+    var myApp2 = new MyApp2();
+    myApp2.attach(document.getElementById("div2"));
+</script>
+</body>
+
+</html>
