@@ -10,7 +10,7 @@ import {router} from 'san-router'
 
 import home from "./home/home.san"
 import dataHandle from "./dataHandle/dataHandle.san"
-import task2spot3 from "./task2.3/view.san"
+import task2spot2 from "./task2.2/view.san"
 
 
 router.add({
@@ -29,8 +29,8 @@ router.add({
     target: '#app'
 });
 router.add({
-    rule: '/task2spot3',
-    Component: task2spot3,
+    rule: '/task2spot2',
+    Component: task2spot2,
     target: '#app'
 });
 
