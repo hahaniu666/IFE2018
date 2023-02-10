@@ -2118,9 +2118,9 @@ const Spark = {
 };
 
 
-
+let basehref = location.href.substr(0,location.href.length-10)
 const soundManager = {
-	baseURL: 'http://127.0.0.1:8080/',
+	baseURL: basehref,
 	ctx: new (window.AudioContext || window.webkitAudioContext),
 	sources: {
 		lift: {
